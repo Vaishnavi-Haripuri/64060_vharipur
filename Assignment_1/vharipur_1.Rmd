@@ -1,0 +1,29 @@
+---
+title: "64060_vharipur"
+author: "Vaishnavi"
+date: "2023-09-23"
+output: html_document
+---
+
+```{r}
+Trade <- read.csv("Trade.csv")
+summary(Trade$Value)
+```
+
+```{r}
+table(Trade$Weekday)
+```
+```{r}
+Cumulative <-Trade$Cumulative
+Log_Cumulative<-log(Cumulative)
+```
+
+```{r}
+library(ggplot2)
+ggplot(Trade, aes(x = Value)) +geom_histogram(bins = 20)
+```
+
+```{r}
+ggplot(Trade, aes(x = Cumulative, y = Value, color = Country)) +
+  geom_point()
+```
